@@ -21,4 +21,5 @@
   RewriteRule ^airlines/search?$ src/View/Airlines/search.php [NC,L]
   RewriteRule ^airlines/edit?$ src/View/Airlines/edit.php [NC,L]
   RewriteRule ^airlines/view?$ src/View/Airlines/view.php [NC,L]
+  RewriteRule ^airlines/add?$ src/View/Airlines/add.php [NC,L]
 </IfModule>

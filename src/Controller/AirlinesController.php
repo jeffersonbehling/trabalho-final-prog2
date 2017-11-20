@@ -149,4 +149,21 @@ class AirlinesController {
             return null;
         }
     }
+
+    public function add(Airline $airline)
+    {
+        try {
+            $stmt = $this->conn->prepare("INSERT INTO airlines (name) VALUES (?)");
+            $stmt->bindValue(1, $airline->getName());
+
+            if ($stmt->execute()) {
+                return true;
+            }
+
+            return false;
+
+        } catch (PDOException $e) {
+            return null;
+        }
+    }
 }
