@@ -5,6 +5,11 @@
 <?php
     $airlinesController = new AirlinesController();
 
+    session_start();
+    if (!isset($_SESSION['username'])) {
+        $airlinesController->redirect();
+    }
+
     if (!isset($_GET['id'])) {
         echo "<script>alert('You need to enter the airline id.'); </script>";
         $airlinesController->redirect('search');

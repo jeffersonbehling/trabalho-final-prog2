@@ -6,7 +6,7 @@
 ?>
 <?php session_start();
     if (!isset($_SESSION['username'])) {
-        $usersController->redirect();
+        $airlinesController->redirect();
     }
 ?>
 <div class="container" style="padding-top: 5%; padding-bottom: 5%">

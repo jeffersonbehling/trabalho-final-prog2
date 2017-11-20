@@ -4,6 +4,11 @@
 <?php
     $airlinesController = new AirlinesController();
 
+    session_start();
+    if (!isset($_SESSION['username'])) {
+        $airlinesController->redirect();
+    }
+
     $airline = new Airline();
     if (getenv('REQUEST_METHOD') == 'POST') {
         if (isset($_POST['name']) && !empty($_POST['name'])) {

@@ -8,6 +8,11 @@
     $countriesController = new CountriesController();
     $airlinesController = new AirlinesController();
 
+    session_start();
+    if (!isset($_SESSION['username'])) {
+        $clientsController->redirect();
+    }
+
     if (!isset($_GET['id'])) {
         echo "<script>alert('You need to enter the client id.'); </script>";
         $clientsController->redirect('search');

@@ -4,10 +4,15 @@
 <?php include_once '../../Controller/AirlinesController.php' ?>
 <?php include_once '../../Model/Client.php' ?>
 <?php include_once '../../Model/ClientsAirlines.php' ?>
+<?php session_start(); ?>
 <?php
     $clientsController = new ClientsController();
     $countriesController = new CountriesController();
     $airlinesController = new AirlinesController();
+
+    if (!isset($_SESSION['username'])) {
+        $clientsController->redirect();
+    }
 
     $client = new Client();
     $clientsAirlines = new ClientsAirlines();

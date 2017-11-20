@@ -5,7 +5,7 @@ $usersController = new UsersController();
 ?>
 <?php session_start();
     if (!isset($_SESSION['username'])) {
-        $clientsController->redirect();
+        $usersController->redirect();
     }
 
     if (isset($_GET['id'])) {
