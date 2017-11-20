@@ -5,6 +5,23 @@ class Client {
     private $name;
     private $country_id;
     private $forecast_stay;
+    private $country_name;
+
+    /**
+     * @return mixed
+     */
+    public function getCountryName()
+    {
+        return $this->country_name;
+    }
+
+    /**
+     * @param mixed $country_name
+     */
+    public function setCountryName($country_name)
+    {
+        $this->country_name = $country_name;
+    }
 
     /**
      * Client constructor.

@@ -83,7 +83,7 @@ class User {
      */
     public function getPass()
     {
-        return md5($this->pass);
+        return $this->pass;
     }
 
     /**

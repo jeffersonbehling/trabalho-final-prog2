@@ -14,12 +14,25 @@
     </head>
     <nav>
         <div class="nav-wrapper">
-            <a href="" class="brand-logo">Logo</a>
+            <a href="/trabalho-final-prog2" class="brand-logo">
+                Tchê Hotelaria
+            </a>
+
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <?php if (isset($_SESSION['username']) && isset($_SESSION['pass'])) { ?>
-                    <li><a href="logout">Logout</a></li>
+                <?php
+                session_start();
+                if (isset($_SESSION['username'])) { ?>
+                    <ul id="dropdown1" class="dropdown-content">
+                        <li><a href="/trabalho-final-prog2/clients/add">Add Clients</a></li>
+                        <li><a href="/trabalho-final-prog2/airlines/add">Add Airlines</a></li>
+                    </ul>
+                    <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Options<i class="material-icons right">arrow_drop_down</i></a></li>
+                <?php } ?>
+                <?php session_start(); ?>
+                <?php if (isset($_SESSION['username'])) { ?>
+                    <li><a href="/trabalho-final-prog2/logout">Logout</a></li>
                 <?php } else { ?>
-                    <li><a href="login">Login</a></li>
+                    <li><a href="/trabalho-final-prog2/login">Login</a></li>
                 <?php } ?>
             </ul>
         </div>

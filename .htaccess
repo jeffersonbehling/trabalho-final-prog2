@@ -2,9 +2,23 @@
   RewriteEngine On
 
   RewriteRule ^clients/add?$ src/View/Clients/add.php [NC,L]
-  RewriteRule ^/?$ src/View/Users/login.php [NC,L]
+  RewriteRule ^/?$ src/View/home.php [NC,L]
   RewriteRule ^login?$ src/View/Users/login.php [NC,L]
   RewriteRule ^logout?$ src/View/Users/logout.php [NC,L]
-  RewriteRule ^users/sign-up?$ src/View/Users/sign-up.php [NC,L]
+
+
+  RewriteRule ^clients/search?$ src/View/Clients/search.php [NC,L]
+  RewriteRule ^clients/view?$ src/View/Clients/view.php [NC,L]
+  RewriteRule ^clients/edit?$ src/View/Clients/edit.php [NC,L]
+  RewriteRule ^clients/delete?$ src/View/Clients/delete.php [NC,L]
+
+  RewriteRule ^users/search?$ src/View/Users/search.php [NC,L]
+  RewriteRule ^users/enable?$ src/View/Users/enable.php [NC,L]
+  RewriteRule ^users/disable?$ src/View/Users/disable.php [NC,L]
+  RewriteRule ^users/sign-up?$ src/View/Users/sign_up.php [NC,L]
   RewriteRule ^users/forgot-password?$ src/View/Users/forgot-password.php [NC,L]
+
+  RewriteRule ^airlines/search?$ src/View/Airlines/search.php [NC,L]
+  RewriteRule ^airlines/edit?$ src/View/Airlines/edit.php [NC,L]
+  RewriteRule ^airlines/view?$ src/View/Airlines/view.php [NC,L]
 </IfModule>

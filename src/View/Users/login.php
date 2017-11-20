@@ -1,20 +1,28 @@
 <?php include_once '../default.php'; ?>
-<?php
-    if (isset($_POST['username']) && isset($_POST['password'])) {
+<?php include_once '../../Controller/UsersController.php'; ?>
+<?php include_once '../../Model/User.php'; ?>
 
+<?php
+    $usersController = new UsersController();
+    session_start();
+    $teste = $_SESSION['username'];
+
+    if ($usersController->isLogged()) {
+        $usersController->redirect();
+    }
+
+    if (isset($_POST['username']) && isset($_POST['password'])) {
         $user = new User();
         $user->setUsername($_POST['username']);
         $user->setPass($_POST['password']);
-        $usersController = new UsersController();
+
 
         if ($usersController->login($user)) {
-            $usersController->redirect('home.php');
+            $usersController->redirect();
 
         } else {
             $msg = "Username or Password is invalid";
         }
-    } else {
-        echo "<script>alert(' nao shooow'); </script>";
     }
 ?>
 <body>
@@ -34,7 +42,9 @@
                             <div class='col s12'>
                             </div>
                         </div>
-
+                        <?php if (isset($msg)) { ?>
+                            <div class="red-text"><?php echo $msg ?></div>
+                        <?php } ?>
                         <div class='row'>
                             <div class='input-field col s12'>
                                 <input type='text' name='username' />
@@ -44,11 +54,11 @@
 
                         <div class='row'>
                             <div class='input-field col s12'>
-                                <input type='password' name='password' />
+                                <input type='password' name='password'/>
                                 <label for='password'>Enter your password</label>
                             </div>
                             <label style='float: right;'>
-                                <a class='pink-text' href='admin/forgot-password'><b>Forgot Password?</b></a>
+                                <a class='pink-text' href='users/forgot-password'><b>Forgot Password?</b></a>
                             </label>
                         </div>
                         <br />
@@ -60,7 +70,7 @@
                     </form>
                 </div>
             </div>
-            <a href="admin/sign-up">Create account</a>
+            <a href="users/sign-up">Create account</a>
         </center>
 
         <div class="section"></div>

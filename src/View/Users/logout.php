@@ -1,1 +1,6 @@
-<h1>LOGOUT</h1>
+<?php include_once '../../Controller/UsersController.php'; ?>
+<?php
+    $usersController = new UsersController();
+    $usersController->logout();
+
+?>
